@@ -29,11 +29,12 @@ page = Capybara::Session.new(:rack_test, app)
 build = Percy::Capybara.initialize_build
 
 page.visit('/index.html')
-Percy::Capybara.snapshot(page, {name: 'first snapshot', widths: [1280]})
-Percy::Capybara.snapshot(page, {name: 'second snapshot', widths: [1280]})
+Percy::Capybara.snapshot(page, {name: 'Renamed first snapshot', widths: [1280]})
+Percy::Capybara.snapshot(page, {name: 'Renamed second snapshot', widths: [1080]})
 
 page.visit('/basil.html')
 Percy::Capybara.snapshot(page, {name: 'Basil page', widths: [1280]})
+Percy::Capybara.snapshot(page, {name: 'Reeeeeeename Basil page', widths: [300, 1280]})
 
 
 Percy::Capybara.finalize_build
